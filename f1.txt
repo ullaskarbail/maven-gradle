@@ -5,7 +5,10 @@
 
 
 
-
+<dependecies>
+version:2.10.1
+groupid:com.google.code.gson
+artifactid gson
 
 
 
