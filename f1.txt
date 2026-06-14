@@ -1,0 +1,110 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+plugins{
+  id 'java'
+  id 'application'
+}
+repositories{
+   mavenCentral()
+}
+dependencies{
+   testImplementation 'junit:junit:4.13.2'
+}
+application{
+   mainClass='com.example.App'
+}
+
+rootProject.name='demo3'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Create File') {
+            steps {
+                writeFile file: 'app.py', text: 'print("Hello")'
+            }
+        }
+
+        stage('Sonar Analysis') {
+            steps {
+                script {
+                    def scannerHome = tool 'sonar'
+
+                    withSonarQubeEnv('sonar') {
+                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=demo -Dsonar.sources=."
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+set JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot
+set PATH=%JAVA_HOME%\bin;%PATH%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
