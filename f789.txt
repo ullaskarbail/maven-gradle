@@ -1,0 +1,19 @@
+plugins{
+    id 'java'
+    id 'application'
+}
+dependencies{
+   testImplementation 'junit:junit:4.13.2'
+}
+repositories{
+   mavenCentral()
+}
+application{
+   mainClass= 'com.example.App'
+}
+
+mvn archetype:generate -DgroupId=com.example -DartifactId=demo60 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=fasle
+
+
+
+rootProject.name= 'demo60'
