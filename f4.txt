@@ -14,7 +14,7 @@ pipeline {
                     def scannerHome = tool 'sonar'
 
                     withSonarQubeEnv('sonar') {
-                        bat "${scannerHome}\\bin\\sonar-scanner -Dsonar.projectKey=demo -Dsonar.sources=."
+                        bat "${scannerHome}\\bin\\sonar-scanner.bat -Dsonar.projectKey=demo -Dsonar.sources=."
                     }
                 }
             }
